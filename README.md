@@ -9,3 +9,5 @@
 ![https://img.shields.io/badge/tailwindcss-35495E?style=for-the-badge&logo=tailwindcss&logoColor=38BCF8](https://img.shields.io/badge/tailwindcss-35495E?style=for-the-badge&logo=tailwindcss&logoColor=38BCF8)
 
 手工打造圖片輪播
+
+[![手工打造圖片輪播](./readme/cover.png)](https://connectshark.github.io/responsive-image-gallery-slider/#/)
