@@ -11,3 +11,7 @@
 手工打造圖片輪播
 
 [![手工打造圖片輪播](./readme/cover.png)](https://connectshark.github.io/responsive-image-gallery-slider/#/)
+
+## 樣式參考[Bedimcode影片](https://youtu.be/h_R7A0CfUbo)
+
+純參考樣式排板，程式內容自己

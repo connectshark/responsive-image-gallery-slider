@@ -4,34 +4,33 @@
       <Transition
         appear
         mode="out-in"
-        enter-from-class="opacity-0"
-        leave-to-class="opacity-0"
-        enter-active-class="transition-opacity duration-100"
-        leave-active-class="transition-opacity duration-100"
+        enter-from-class="opacity-0 -translate-y-2"
+        leave-to-class="opacity-0 -translate-y-2"
+        enter-active-class="transition duration-100"
+        leave-active-class="transition duration-100"
       >
         <img
           :key="state.id"
           class="rounded-3xl h-80 shadow-xl overflow-hidden w-52  object-cover"
           :src="state.url"
-          :alt="'img' + state.id">
+          :alt="'img' + state.id"
+        >
       </Transition>
     </figure>
-    <ul v-auto-animate class="flex justify-evenly relative">
-      <button class="right-full absolute" @click="prev()">
+    <div class="relative">
+      <button type="button" class="right-full absolute top-6 -rotate-12" @click="prev()" @keyup.left="prev()">
         <i class='bx bx-md bxs-left-arrow'></i>
       </button>
-      <button class="left-full absolute" @click="next()">
+      <button type="button" class="left-full absolute top-6 rotate-12" @click="next()" @keyup.right="next()">
         <i class='bx bx-md bxs-right-arrow'></i>
       </button>
-      <li
-        v-for="({ id, url }, index) in previewImg"
-        :key="id"
-        @click="go(index)"
-        class="cursor-pointer"
-      >
-        <img class="shadow-lg rounded-2xl w-11 h-11" :src="url" :alt="'img' + id">
-      </li>
-    </ul>
+      <ul class="flex justify-evenly">
+        <li v-for="({ id, url }, index) in previewImg" :key="id" @click="go(index)"
+          class="cursor-pointer first:-rotate-12 first:translate-y-2 last:rotate-12 last:translate-y-2">
+          <img class="shadow-lg rounded-2xl w-11 h-11" :src="url" :alt="'img' + id">
+        </li>
+      </ul>
+    </div>
     <p class="font-bold text-center leading-loose">{{ index + 1 }} / {{ list.length }}</p>
   </main>
 </template>
@@ -97,7 +96,7 @@ const go = index => {
 
 const previewImg = computed(() => {
   const initIndex = [index.value - 1, index.value, index.value + 1]
-  const validIndex =  initIndex.map(item => {
+  const validIndex = initIndex.map(item => {
     if (item < 0) {
       return list.length - 1
     } else if (item >= list.length) {
